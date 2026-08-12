@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="University of Ruhuna, Faculty of Technology 10th Anniversary Exhibition - August 14, 2026. Explore cutting-edge tech exhibitions, drone shows, VR experiences, robotics, and more!">
+    <meta name="keywords" content="University of Ruhuna, Faculty of Technology, 10th Anniversary, Exhibition, Technology, Drones, VR, Robotics">
+    <title>10th Anniversary Exhibition | Faculty of Technology - University of Ruhuna</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="assets/images/emblem.png">
+</head>
+<body>
+
+    <!-- ===== Navigation ===== -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="#hero" class="nav-logo">
+                <span class="logo-badge">10</span>
+                <span>UoR <span class="logo-accent">FoT</span></span>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="#about">About</a>
+                <a href="#events">Events</a>
+                <a href="#map">Map</a>
+                <a href="#schedule">Schedule</a>
+                <a href="#events" class="nav-cta">Explore Events</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ===== Hero Section ===== -->
+    <section class="hero" id="hero">
+        <canvas class="hero-canvas" id="heroCanvas"></canvas>
+        <div class="hero-glow hero-glow-1"></div>
+        <div class="hero-glow hero-glow-2"></div>
+
+        <div class="hero-content">
+            <div class="hero-emblem">
+                <img src="assets/images/emblem.png" alt="10th Anniversary Emblem">
+            </div>
+
+            <div class="hero-anniversary">
+                <span class="year-badge">10</span>
+                <div class="year-text">
+                    <span>Years of</span>
+                    <strong>Excellence</strong>
+                </div>
+            </div>
+
+            <h1 class="hero-title">University of Ruhuna</h1>
+            <p class="hero-faculty">Faculty of Technology &bull; Anniversary Exhibition 2026</p>
+
+            <div class="hero-date-info">
+                <div class="hero-date-item">
+                    <span class="icon">📅</span>
+                    <span class="text">August 14, 2026</span>
+                </div>
+                <div class="hero-date-item">
+                    <span class="icon">🕘</span>
+                    <span class="text">9:00 AM – 4:00 PM</span>
+                </div>
+                <div class="hero-date-item">
+                    <span class="icon">📍</span>
+                    <span class="text">Faculty of Technology Campus</span>
+                </div>
+            </div>
+
+            <!-- Countdown Timer -->
+            <div class="countdown" id="countdown">
+                <div class="countdown-item">
+                    <span class="countdown-number" id="countDays">00</span>
+                    <span class="countdown-label">Days</span>
+                </div>
+                <span class="countdown-separator">:</span>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="countHours">00</span>
+                    <span class="countdown-label">Hours</span>
+                </div>
+                <span class="countdown-separator">:</span>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="countMinutes">00</span>
+                    <span class="countdown-label">Minutes</span>
+                </div>
+                <span class="countdown-separator">:</span>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="countSeconds">00</span>
+                    <span class="countdown-label">Seconds</span>
+                </div>
+            </div>
+
+            <a href="#events" class="hero-cta">
+                Explore Events ↓
+            </a>
+        </div>
+
+        <div class="hero-scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- ===== About Section ===== -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text reveal-left">
+                    <div class="section-badge">✨ Our Journey</div>
+                    <h2 class="section-title" style="text-align: left;">Celebrating a Decade of Innovation</h2>
+                    <p>
+                        The Faculty of Technology at the University of Ruhuna celebrates its 10th anniversary — a decade of nurturing innovation, technology, and academic excellence. This milestone marks ten years of shaping the future through cutting-edge education and groundbreaking research.
+                    </p>
+                    <p>
+                        Join us for a day of spectacular exhibitions, live demonstrations, and interactive experiences. From thrilling drone shows to immersive VR zones, this exhibition showcases the best of what our students and faculty have achieved.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat-card">
+                            <div class="stat-number">10</div>
+                            <div class="stat-label">Years</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">9+</div>
+                            <div class="stat-label">Events</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">1</div>
+                            <div class="stat-label">Epic Day</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual reveal-right">
+                    <div class="about-image-wrapper">
+                        <img src="assets/images/emblem.png" alt="University of Ruhuna Faculty of Technology 10th Anniversary">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Events Section ===== -->
+    <section class="section events" id="events">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-badge">🎪 Events</div>
+                <h2 class="section-title">What Awaits You</h2>
+                <p class="section-subtitle">Discover an exciting lineup of technology showcases, live demonstrations, and interactive experiences throughout the day.</p>
+            </div>
+
+            <div class="events-grid stagger">
+                <!-- Event 1: Drone Show -->
+                <div class="event-card reveal" id="event-drone-show">
+                    <div class="event-icon">🚁</div>
+                    <h3 class="event-name">Drone Show</h3>
+                    <p class="event-description">Watch spectacular drone flight demonstrations over the scenic pond area. Experience cutting-edge UAV technology in action.</p>
+                    <div class="event-meta">
+                        <div class="event-meta-item venue">
+                            <span class="meta-icon">📍</span>
+                            <span class="meta-text">Outside – Pond Area</span>
+                        </div>
+                        <div class="event-meta-item">
+                            <span class="meta-icon">🕐</span>
+                            <span class="meta-text">9:00 AM – 10:00 AM</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 2: Industrial Drone Session -->
+                <div class="event-card reveal" id="event-industrial-drone">
+                    <div class="event-icon">🏭</div>
+                    <h3 class="event-name">Industrial Drone Session</h3>
+                    <p class="event-description">Explore the world of industrial-grade drones and their real-world applications in agriculture, surveying, and logistics.</p>
+                    <div class="event-meta">
+                        <div class="event-meta-item venue">
+                            <span class="meta-icon">📍</span>
+                            <span class="meta-text">New Playground</span>
+                        </div>
+                        <div class="event-meta-item">
+                            <span class="meta-icon">🕐</span>
+                            <span class="meta-text">10:00 AM – 11:00 AM</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 3: Magic Show -->
+                <div class="event-card reveal" id="event-magic-show">
+                    <div class="event-icon">🎩</div>
+                    <h3 class="event-name">Magic Show</h3>
+                    <p class="event-description">Be amazed by a dazzling magic show blending technology and illusion. A performance you won't forget!</p>
+                    <div class="event-meta">
+                        <div class="event-meta-item venue">
+                            <span class="meta-icon">📍</span>
+                            <span class="meta-text">New Building LH125</span>
+                        </div>
+                        <div class="event-meta-item">
+                            <span class="meta-icon">🕐</span>
+                            <span class="meta-text">11:00 AM – 12:00 PM</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 4: Robotics Competition -->
+                <div class="event-card reveal" id="event-robotics">
+                    <div class="event-icon">🤖</div>
+                    <h3 class="event-name">Robotics Competition</h3>
+                    <p class="event-description">Witness exciting robot battles and challenges. See innovative robots designed and built by talented students.</p>
+                    <div class="event-meta">
+                        <div class="event-meta-item venue">
+                            <span class="meta-icon">📍</span>
+                            <span class="meta-text">NBLLT</span>
+                        </div>
+                        <div class="event-meta-item">
+                            <span class="meta-icon">🕐</span>
+                            <span class="meta-text">9:00 AM – 1:00 PM</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 5: VR Zone -->
+                <div class="event-card reveal" id="event-vr-zone">
+                    <div class="event-icon">🥽</div>
+                    <h3 class="event-name">VR Zone</h3>
+                    <p class="event-description">Step into virtual reality! Experience immersive VR environments and explore worlds beyond imagination.</p>
+                    <div class="event-meta">
+                        <div class="event-meta-item venue">
+                            <span class="meta-icon">📍</span>
+                            <span class="meta-text">NBSLT</span>
+                        </div>
+                        <div class="event-meta-item">
+                            <span class="meta-icon">🕐</span>
+                            <span class="meta-text">9:00 AM – 4:00 PM</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 6: Game Zone -->
+                <div class="event-card reveal" id="event-game-zone">
+                    <div class="event-icon">🎮</div>
+                    <h3 class="event-name">Game Zone</h3>
+                    <p class="event-description">Challenge your friends to gaming battles! Enjoy a variety of games in the ultimate gaming experience zone.</p>
+                    <div class="event-meta">
+                        <div class="event-meta-item venue">
+                            <span class="meta-icon">📍</span>
+                            <span class="meta-text">ICT Lecture Hall</span>
+                        </div>
+                        <div class="event-meta-item">
+                            <span class="meta-icon">🕐</span>
+                            <span class="meta-text">9:00 AM – 4:00 PM</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 7: Gel Blaster Arena -->
+                <div class="event-card reveal" id="event-gel-blaster">
+                    <div class="event-icon">🎯</div>
+                    <h3 class="event-name">Gel Blaster Arena Event</h3>
+                    <p class="event-description">Gear up for action! Experience thrilling gel blaster battles in our dedicated outdoor arena.</p>
+                    <div class="event-meta">
+                        <div class="event-meta-item venue">
+                            <span class="meta-icon">📍</span>
+                            <span class="meta-text">Old Playground</span>
+                        </div>
+                        <div class="event-meta-item">
+                            <span class="meta-icon">🕐</span>
+                            <span class="meta-text">1:00 PM – 3:00 PM</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 8: Food Stall -->
+                <div class="event-card reveal" id="event-food-stall">
+                    <div class="event-icon">🍔</div>
+                    <h3 class="event-name">Food Stall</h3>
+                    <p class="event-description">Fuel your adventure with delicious food and refreshing beverages from our outdoor food stalls.</p>
+                    <div class="event-meta">
+                        <div class="event-meta-item venue">
+                            <span class="meta-icon">📍</span>
+                            <span class="meta-text">Outside</span>
+                        </div>
+                        <div class="event-meta-item">
+                            <span class="meta-icon">🕐</span>
+                            <span class="meta-text">9:00 AM – 4:00 PM</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 9: Other Competitions -->
+                <div class="event-card reveal" id="event-competitions">
+                    <div class="event-icon">🏆</div>
+                    <h3 class="event-name">Competitions</h3>
+                    <p class="event-description">Participate in exciting tech competitions and showcase your skills. Prizes await the winners!</p>
+                    <div class="event-meta">
+                        <div class="event-meta-item venue">
+                            <span class="meta-icon">📍</span>
+                            <span class="meta-text">NBLLT</span>
+                        </div>
+                        <div class="event-meta-item">
+                            <span class="meta-icon">🕐</span>
+                            <span class="meta-text">9:00 AM – 4:00 PM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Campus Map Section ===== -->
+    <section class="section campus-map" id="map">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-badge">🗺️ Campus Map</div>
+                <h2 class="section-title">Find Your Way</h2>
+                <p class="section-subtitle">Explore the Faculty of Technology campus and locate all event venues. Hover over buildings to see event details.</p>
+            </div>
+
+            <div class="map-container reveal-scale">
+                <div class="map-image-wrapper" id="mapImageWrapper">
+                    <!-- Aerial Campus Map Image -->
+                    <img src="assets/images/campus-map.jpg" alt="Faculty of Technology Campus Aerial View" class="map-aerial-img">
+
+                    <!-- Interactive Venue Markers -->
+                    <!-- NBLLT - Top-left large building cluster -->
+                    <div class="map-marker" data-venue="nbllt" style="top: 28%; left: 22%;">
+                        <div class="marker-pin" style="--marker-color: #d4a843;">
+                            <span class="marker-emoji">🤖</span>
+                        </div>
+                        <div class="marker-pulse" style="--marker-color: #d4a843;"></div>
+                        <div class="marker-label">NBLLT</div>
+                        <div class="marker-popup">
+                            <div class="marker-popup-title">🤖 Robotics &amp; Competitions</div>
+                            <div class="marker-popup-venue">📍 NBLLT</div>
+                            <div class="marker-popup-time">🕐 9:00 AM – 4:00 PM</div>
+                        </div>
+                    </div>
+
+                    <!-- NBSLT - Center-right building -->
+                    <div class="map-marker" data-venue="nbslt" style="top: 42%; left: 58%;">
+                        <div class="marker-pin" style="--marker-color: #6495ed;">
+                            <span class="marker-emoji">🥽</span>
+                        </div>
+                        <div class="marker-pulse" style="--marker-color: #6495ed;"></div>
+                        <div class="marker-label">NBSLT</div>
+                        <div class="marker-popup">
+                            <div class="marker-popup-title">🥽 VR Zone</div>
+                            <div class="marker-popup-venue">📍 NBSLT</div>
+                            <div class="marker-popup-time">🕐 9:00 AM – 4:00 PM</div>
+                        </div>
+                    </div>
+
+                    <!-- New Building LH125 - Center building -->
+                    <div class="map-marker" data-venue="lh125" style="top: 18%; left: 42%;">
+                        <div class="marker-pin" style="--marker-color: #a855f7;">
+                            <span class="marker-emoji">🎩</span>
+                        </div>
+                        <div class="marker-pulse" style="--marker-color: #a855f7;"></div>
+                        <div class="marker-label">LH125</div>
+                        <div class="marker-popup">
+                            <div class="marker-popup-title">🎩 Magic Show</div>
+                            <div class="marker-popup-venue">📍 New Building LH125</div>
+                            <div class="marker-popup-time">🕐 11:00 AM – 12:00 PM</div>
+                        </div>
+                    </div>
+
+                    <!-- ICT Lecture Hall - Right side building -->
+                    <div class="map-marker" data-venue="ict-hall" style="top: 52%; left: 75%;">
+                        <div class="marker-pin" style="--marker-color: #3b82f6;">
+                            <span class="marker-emoji">🎮</span>
+                        </div>
+                        <div class="marker-pulse" style="--marker-color: #3b82f6;"></div>
+                        <div class="marker-label">ICT Hall</div>
+                        <div class="marker-popup">
+                            <div class="marker-popup-title">🎮 Game Zone</div>
+                            <div class="marker-popup-venue">📍 ICT Lecture Hall</div>
+                            <div class="marker-popup-time">🕐 9:00 AM – 4:00 PM</div>
+                        </div>
+                    </div>
+
+                    <!-- Pond Area - Top-right pond/water area -->
+                    <div class="map-marker" data-venue="pond-area" style="top: 12%; left: 82%;">
+                        <div class="marker-pin" style="--marker-color: #64b4ff;">
+                            <span class="marker-emoji">🚁</span>
+                        </div>
+                        <div class="marker-pulse" style="--marker-color: #64b4ff;"></div>
+                        <div class="marker-label">Pond Area</div>
+                        <div class="marker-popup">
+                            <div class="marker-popup-title">🚁 Drone Show</div>
+                            <div class="marker-popup-venue">📍 Outside – Pond Area</div>
+                            <div class="marker-popup-time">🕐 9:00 AM – 10:00 AM</div>
+                        </div>
+                    </div>
+
+                    <!-- New Playground - Center green field -->
+                    <div class="map-marker" data-venue="new-playground" style="top: 22%; left: 55%;">
+                        <div class="marker-pin" style="--marker-color: #22c55e;">
+                            <span class="marker-emoji">🏭</span>
+                        </div>
+                        <div class="marker-pulse" style="--marker-color: #22c55e;"></div>
+                        <div class="marker-label">New Playground</div>
+                        <div class="marker-popup">
+                            <div class="marker-popup-title">🏭 Industrial Drone Session</div>
+                            <div class="marker-popup-venue">📍 New Playground</div>
+                            <div class="marker-popup-time">🕐 10:00 AM – 11:00 AM</div>
+                        </div>
+                    </div>
+
+                    <!-- Old Playground - Bottom-right large green area -->
+                    <div class="map-marker" data-venue="old-playground" style="top: 78%; left: 65%;">
+                        <div class="marker-pin" style="--marker-color: #f97316;">
+                            <span class="marker-emoji">🎯</span>
+                        </div>
+                        <div class="marker-pulse" style="--marker-color: #f97316;"></div>
+                        <div class="marker-label">Old Playground</div>
+                        <div class="marker-popup">
+                            <div class="marker-popup-title">🎯 Gel Blaster Arena Event</div>
+                            <div class="marker-popup-venue">📍 Old Playground</div>
+                            <div class="marker-popup-time">🕐 1:00 PM – 3:00 PM</div>
+                        </div>
+                    </div>
+
+                    <!-- Outside / Food Area - Bottom-left area -->
+                    <div class="map-marker" data-venue="outside" style="top: 65%; left: 15%;">
+                        <div class="marker-pin" style="--marker-color: #ec4899;">
+                            <span class="marker-emoji">🍔</span>
+                        </div>
+                        <div class="marker-pulse" style="--marker-color: #ec4899;"></div>
+                        <div class="marker-label">Outside</div>
+                        <div class="marker-popup">
+                            <div class="marker-popup-title">🍔 Food Stall</div>
+                            <div class="marker-popup-venue">📍 Outside Area</div>
+                            <div class="marker-popup-time">🕐 9:00 AM – 4:00 PM</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map Legend -->
+                <div class="map-legend">
+                    <div class="map-legend-item" data-target="nbllt">
+                        <div class="map-legend-dot" style="background: #d4a843;"></div>
+                        <span>NBLLT</span>
+                    </div>
+                    <div class="map-legend-item" data-target="nbslt">
+                        <div class="map-legend-dot" style="background: #6495ed;"></div>
+                        <span>NBSLT</span>
+                    </div>
+                    <div class="map-legend-item" data-target="lh125">
+                        <div class="map-legend-dot" style="background: #a855f7;"></div>
+                        <span>LH125</span>
+                    </div>
+                    <div class="map-legend-item" data-target="ict-hall">
+                        <div class="map-legend-dot" style="background: #3b82f6;"></div>
+                        <span>ICT Hall</span>
+                    </div>
+                    <div class="map-legend-item" data-target="pond-area">
+                        <div class="map-legend-dot" style="background: #64b4ff;"></div>
+                        <span>Pond Area</span>
+                    </div>
+                    <div class="map-legend-item" data-target="new-playground">
+                        <div class="map-legend-dot" style="background: #22c55e;"></div>
+                        <span>New Playground</span>
+                    </div>
+                    <div class="map-legend-item" data-target="old-playground">
+                        <div class="map-legend-dot" style="background: #f97316;"></div>
+                        <span>Old Playground</span>
+                    </div>
+                    <div class="map-legend-item" data-target="outside">
+                        <div class="map-legend-dot" style="background: #ec4899;"></div>
+                        <span>Outside</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Schedule / Timeline Section ===== -->
+    <section class="section schedule" id="schedule">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-badge">📋 Schedule</div>
+                <h2 class="section-title">Event Timeline</h2>
+                <p class="section-subtitle">Plan your day with our complete event schedule from 9:00 AM to 4:00 PM.</p>
+            </div>
+
+            <div class="timeline">
+                <!-- 9:00 AM -->
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-time">🕘 9:00 AM</div>
+                        <div class="timeline-event-name">🚁 Drone Show Begins</div>
+                        <div class="timeline-venue">📍 Outside – Pond Area</div>
+                    </div>
+                </div>
+
+                <!-- 9:00 AM (All Day Events) -->
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-time">🕘 9:00 AM – 4:00 PM</div>
+                        <div class="timeline-event-name">🤖 Robotics Competition &amp; 🏆 Competitions</div>
+                        <div class="timeline-venue">📍 NBLLT</div>
+                    </div>
+                </div>
+
+                <!-- 9:00 AM Ongoing -->
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-time">🕘 9:00 AM – 4:00 PM</div>
+                        <div class="timeline-event-name">🥽 VR Zone &bull; 🎮 Game Zone &bull; 🍔 Food Stall</div>
+                        <div class="timeline-venue">📍 NBSLT, ICT Hall &amp; Outside</div>
+                    </div>
+                </div>
+
+                <!-- 10:00 AM -->
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-time">🕙 10:00 AM</div>
+                        <div class="timeline-event-name">🏭 Industrial Drone Session</div>
+                        <div class="timeline-venue">📍 New Playground</div>
+                    </div>
+                </div>
+
+                <!-- 11:00 AM -->
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-time">🕚 11:00 AM</div>
+                        <div class="timeline-event-name">🎩 Magic Show</div>
+                        <div class="timeline-venue">📍 New Building LH125</div>
+                    </div>
+                </div>
+
+                <!-- 1:00 PM -->
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-time">🕐 1:00 PM</div>
+                        <div class="timeline-event-name">🎯 Gel Blaster Arena Event</div>
+                        <div class="timeline-venue">📍 Old Playground</div>
+                    </div>
+                </div>
+
+                <!-- 4:00 PM -->
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-time">🕓 4:00 PM</div>
+                        <div class="timeline-event-name">✨ Exhibition Concludes</div>
+                        <div class="timeline-venue">Thank you for visiting!</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Footer ===== -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#hero" class="nav-logo">
+                        <span class="logo-badge">10</span>
+                        <span>UoR <span class="logo-accent">FoT</span></span>
+                    </a>
+                    <p>Faculty of Technology, University of Ruhuna celebrates 10 years of excellence in technology education and innovation. Join us for this historic celebration!</p>
+                </div>
+                <div class="footer-nav">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="#about">About</a>
+                        <a href="#events">Events</a>
+                        <a href="#map">Campus Map</a>
+                        <a href="#schedule">Schedule</a>
+                    </div>
+                </div>
+                <div class="footer-contact">
+                    <h4 class="footer-heading">Contact</h4>
+                    <div class="footer-contact-item">
+                        <span class="icon">📍</span>
+                        <span>Faculty of Technology, University of Ruhuna, Kamburupitiya</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <span class="icon">🌐</span>
+                        <span>www.tec.ruh.ac.lk</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <span class="icon">📅</span>
+                        <span>August 14, 2026 | 9 AM – 4 PM</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="footer-bottom">
+                <span>© 2026 Faculty of Technology, University of Ruhuna. All rights reserved.</span>
+                <span>10th Anniversary Exhibition</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
