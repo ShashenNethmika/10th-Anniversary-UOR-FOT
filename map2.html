@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>University Exhibition Interactive Map</title>
+
+    <style>
+
+        /* =========================
+           BASIC
+        ========================= */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            min-height: 100%;
+        }
+
+
+        /* =========================
+           MAP
+        ========================= */
+
+        .map-container {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            margin: 0;
+        }
+
+        .map-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+
+        /* =========================
+           NUMBER CIRCLE
+        ========================= */
+
+        .map-number {
+            position: absolute;
+
+            width: clamp(32px, 5vw, 48px);
+            height: clamp(32px, 5vw, 48px);
+
+            border-radius: 50%;
+
+            background: red;
+            color: white;
+
+            border: 3px solid white;
+
+            font-size: clamp(14px, 2.2vw, 21px);
+            font-weight: bold;
+
+            cursor: pointer;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            transform: translate(-50%, -50%);
+
+            box-shadow: 0px 2px 8px rgba(0,0,0,0.5);
+
+            z-index: 10;
+
+            user-select: none;
+        }
+
+        .map-number:hover {
+            transform: translate(-50%, -50%) scale(1.15);
+        }
+
+
+        /* =========================
+           NUMBER POSITIONS
+        ========================= */
+
+        .number1 {
+            left: 35%;
+            top: 15%;
+        }
+
+        .number2 {
+            left: 65%;
+            top: 75%;
+        }
+
+        .number3 {
+            left: 25%;
+            top: 33%;
+        }
+
+        .number4 {
+            left: 59%;
+            top: 23%;
+        }
+
+        .number5 {
+            left: 55%;
+            top: 30%;
+        }
+
+        .number6 {
+            left: 23%;
+            top: 55%;
+        }
+
+        .number7 {
+            left: 50%;
+            top: 50%;
+        }
+
+        .number8 {
+            left: 40%;
+            top: 65%;
+        }
+
+        .number9 {
+            left: 75%;
+            top: 45%;
+        }
+
+        .number10 {
+            left: 85%;
+            top: 65%;
+        }
+
+
+        /* =========================
+           POPUP BACKGROUND
+        ========================= */
+
+        .info-box {
+            display: none;
+
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            background: rgba(0,0,0,0.75);
+
+            z-index: 1000;
+
+            justify-content: center;
+            align-items: center;
+
+            padding: 15px;
+        }
+
+
+        /* =========================
+           POPUP
+        ========================= */
+
+        .popup-content {
+            position: relative;
+
+            background: white;
+
+            padding: 10px;
+
+            border-radius: 12px;
+
+            width: min(90vw, 600px);
+
+            max-height: 90vh;
+
+            box-shadow: 0px 0px 20px rgba(0,0,0,0.5);
+
+            overflow: auto;
+        }
+
+
+        /* =========================
+           POPUP IMAGE
+        ========================= */
+
+        .popup-content img {
+            width: 100%;
+            height: auto;
+
+            max-height: 80vh;
+
+            object-fit: contain;
+
+            display: block;
+
+            border-radius: 8px;
+        }
+
+
+        /* =========================
+           CLOSE BUTTON
+        ========================= */
+
+        .close-button {
+            position: absolute;
+
+            top: -12px;
+            right: -12px;
+
+            width: 40px;
+            height: 40px;
+
+            border-radius: 50%;
+
+            border: 3px solid white;
+
+            background: black;
+            color: white;
+
+            font-size: 25px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            z-index: 1001;
+        }
+
+        .close-button:hover {
+            background: red;
+        }
+
+
+        /* =========================
+           SMART PHONE
+           ========================= */
+
+        @media (max-width: 600px) {
+
+            html,
+            body {
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+            }
+
+            .map-container {
+                width: 100vw;
+                height: 100dvh;
+
+                position: relative;
+
+                overflow: hidden;
+            }
+
+            .map-image {
+                width: 100%;
+                height: 100%;
+
+                object-fit: cover;
+
+                display: block;
+            }
+
+
+            /* Number size on phone */
+
+            .map-number {
+                width: 36px;
+                height: 36px;
+
+                font-size: 15px;
+
+                border-width: 2px;
+            }
+
+
+            /* Popup on phone */
+
+            .info-box {
+                padding: 10px;
+            }
+
+            .popup-content {
+                width: 94vw;
+                max-height: 85vh;
+
+                padding: 7px;
+
+                border-radius: 10px;
+            }
+
+            .popup-content img {
+                max-height: 78vh;
+            }
+
+            .close-button {
+                width: 34px;
+                height: 34px;
+
+                top: -8px;
+                right: -8px;
+
+                font-size: 21px;
+            }
+        }
+
+
+        /* =========================
+           VERY SMALL PHONE
+        ========================= */
+
+        @media (max-width: 360px) {
+
+            .map-number {
+                width: 32px;
+                height: 32px;
+
+                font-size: 13px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<div class="map-container">
+
+    <!-- YOUR MAP -->
+    <img src="ss.jpg.PNG" class="map-image">
+
+
+    <!-- NUMBER 1 -->
+    <div class="map-number number1"
+         onclick="showImage(1)">
+        1
+    </div>
+
+
+    <!-- NUMBER 2 -->
+    <div class="map-number number2"
+         onclick="showImage(2)">
+        2
+    </div>
+
+
+    <!-- NUMBER 3 -->
+    <div class="map-number number3"
+         onclick="showImage(3)">
+        3
+    </div>
+
+
+    <!-- NUMBER 4 -->
+    <div class="map-number number4"
+         onclick="showImage(4)">
+        4
+    </div>
+
+
+    <!-- NUMBER 5 -->
+    <div class="map-number number5"
+         onclick="showImage(5)">
+        5
+    </div>
+
+
+    <!-- NUMBER 6 -->
+    <div class="map-number number6"
+         onclick="showImage(6)">
+        6
+    </div>
+
+
+    <!-- NUMBER 7 -->
+    <div class="map-number number7"
+         onclick="showImage(7)">
+        7
+    </div>
+
+
+    
+</div>
+
+
+
+<!-- =========================
+     POPUP
+========================= -->
+
+<div id="pop-up" class="info-box">
+
+    <div class="popup-content">
+
+        <button class="close-button"
+                onclick="closeBox()">
+            ×
+        </button>
+
+        <img id="popup-image"
+             src=""
+             alt="Location Image">
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+    /* =========================
+       SHOW IMAGE
+    ========================= */
+
+    function showImage(number) {
+
+        var image = document.getElementById("popup-image");
+
+        image.src = "image" + number + ".jpg";
+
+        document.getElementById("pop-up").style.display = "flex";
+    }
+
+
+    /* =========================
+       CLOSE POPUP
+    ========================= */
+
+    function closeBox() {
+
+        document.getElementById("pop-up").style.display = "none";
+
+    }
+
+
+    /* =========================
+       CLOSE WHEN CLICK OUTSIDE
+    ========================= */
+
+    document.getElementById("pop-up").addEventListener("click", function(event) {
+
+        if (event.target === this) {
+            closeBox();
+        }
+
+    });
+
+</script>
+
+
+</body>
+</html>
